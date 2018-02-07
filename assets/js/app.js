@@ -9,9 +9,11 @@ function initMap() {
         center: laboratoriaLima
     });
 
+    var image = 'https://cdn4.iconfinder.com/data/icons/travel-filled-line/2048/5463_-_Cycling_Location-128.png';
     var markadorLaboratoria = new google.maps.Marker({
         position: laboratoriaLima,
-        map: map
+        map: map,
+        icon: image
     });
 
     var inputPartida = document.getElementById('punto-partida');
@@ -67,12 +69,13 @@ var success = function(position) {
     }
 
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+     var image = 'https://cdn4.iconfinder.com/data/icons/travel-filled-line/2048/5463_-_Cycling_Location-128.png';
     var miUbicacion = new google.maps.Marker({
         position: ({
             lat: latitude,
             lng: longitude
         }),
+        icon: image
     });
 
     miUbicacion.setMap(map);
