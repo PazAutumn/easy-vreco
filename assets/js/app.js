@@ -21,6 +21,41 @@ function initMap() {
 
     new google.maps.places.Autocomplete(inputPartida);
     new google.maps.places.Autocomplete(inputDestino);
+}
+
+document.getElementById('encuentrame').addEventListener('click', buscar);
+
+function buscar() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+}
+
+var latitude, longitude;
+var success = function(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+    var myLatlng = new google.maps.LatLng(latitude, longitude);
+    var mapOptions = {
+        zoom: 18,
+        center: myLatlng
+    }
+
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var image = 'https://cdn4.iconfinder.com/data/icons/travel-filled-line/2048/5463_-_Cycling_Location-128.png';
+    var miUbicacion = new google.maps.Marker({
+        position: ({
+            lat: latitude,
+            lng: longitude
+        }),
+        icon: image
+    });
+
+    miUbicacion.setMap(map);
+
+    var inputPartida = document.getElementById('punto-partida');
+    var inputDestino = document.getElementById('punto-destino');
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -46,39 +81,6 @@ function initMap() {
     }
 
     document.getElementById('trazar-ruta').addEventListener('click', trazarRuta);
-
-}
-
-document.getElementById('encuentrame').addEventListener('click', buscar);
-
-function buscar() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-    }
-}
-
-var latitude, longitude;
-var success = function(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-
-    var myLatlng = new google.maps.LatLng(latitude, longitude);
-    var mapOptions = {
-        zoom: 18,
-        center: myLatlng
-    }
-
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-     var image = 'https://cdn4.iconfinder.com/data/icons/travel-filled-line/2048/5463_-_Cycling_Location-128.png';
-    var miUbicacion = new google.maps.Marker({
-        position: ({
-            lat: latitude,
-            lng: longitude
-        }),
-        icon: image
-    });
-
-    miUbicacion.setMap(map);
 }
 
 /*map.setZoom(18),
