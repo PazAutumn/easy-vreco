@@ -7,8 +7,8 @@
   <meta name="author" content="">
 	<meta name="keywords" content="HTML5, CSS3, javascript"/>
 	<title>Find me</title>
-	<!-- Materialize
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+	<!-- Materialize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<!-- Hoja de estilos -->
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -16,26 +16,51 @@
 
 
 <body>
-  <div class="mapa">
-    <img class="responsive-image img-shape" src="assets/img/shape.png"><input id="punto-partida" type="text" placeholder="Ingrese su punto de partida">
-    <img class="responsive-image img-shape" src="assets/img/shape2.png"><input id="punto-destino" type="text" placeholder="Ingrese su destino">
-    <button id="trazar-ruta">¡Trazar Ruta!</button>
-    <button class="btn" id="encuentrame">Encuentrame</button>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 l6 right-align">
+        <h5>Origen</h5>
+      </div>
+      <div class="col s12 m6 l6">
+        <h5>Destino</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 l3 flex">
+        <button class="waves-effect waves-light btn" id="encuentrame">Encuéntrame</button>
+      </div>
+
+      <div class="col s12 l3 input-field">
+        <input id="punto-partida" type="text" placeholder="Ingrese su punto de partida">
+        <label for="punto-partida">Origen</label>
+      </div>
+
+      <div class="col s12 l3">
+        <input id="punto-destino" type="text" placeholder="Ingrese su destino">
+      </div>
+
+      <div class="col s12 l3 flex">
+        <button class="waves-effect waves-light btn" id="trazar-ruta">¡Trazar Ruta!</button>
+      </div>
+
+    </div>
   </div>
-	<div id="map"></div>
-	
+<div class="row">
+  <div id="map"></div>
+</div>
 
 
-	<!-- jQuery
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!-- Google Maps -->
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWwZMxVhqmpk3Gtrpphv38yx9jFyRM2Js&callback=initMap&libraries=places"></script>
 		<!-- Link js -->
   <script src="assets/js/app.js"></script>
-  <!-- Link Iconos
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>-->
-	<!-- Materialize
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+  <!-- Link Iconos -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<!-- Materialize -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 </body>
 </html>
