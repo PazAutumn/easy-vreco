@@ -16,12 +16,12 @@ function initMap() {
         icon: image
     });
 
-    var inputPartida = document.getElementById('punto-partida');
-    var inputDestino = document.getElementById('punto-destino');
-
     new google.maps.places.Autocomplete(inputPartida);
     new google.maps.places.Autocomplete(inputDestino);
 }
+
+var inputPartida = document.getElementById('punto-partida');
+var inputDestino = document.getElementById('punto-destino');
 
 document.getElementById('encuentrame').addEventListener('click', buscar);
 
@@ -53,9 +53,6 @@ var success = function(position) {
     });
 
     miUbicacion.setMap(map);
-
-    var inputPartida = document.getElementById('punto-partida');
-    var inputDestino = document.getElementById('punto-destino');
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
